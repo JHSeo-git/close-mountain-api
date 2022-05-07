@@ -7,13 +7,18 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json}' 'config/**/*.ts'"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/koa": "^2.13.4",
+    "prettier": "^2.6.2"
+  },
   "dependencies": {
-    "@strapi/strapi": "4.2.0-beta.1",
-    "@strapi/plugin-users-permissions": "4.2.0-beta.1",
+    "@strapi/plugin-documentation": "4.2.0-beta.1",
     "@strapi/plugin-i18n": "4.2.0-beta.1",
+    "@strapi/plugin-users-permissions": "4.2.0-beta.1",
+    "@strapi/strapi": "4.2.0-beta.1",
     "better-sqlite3": "7.4.6"
   },
   "author": {
