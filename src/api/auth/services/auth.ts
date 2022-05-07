@@ -1,0 +1,5 @@
+/**
+ * auth service.
+ */
+
+export default () => ({});
