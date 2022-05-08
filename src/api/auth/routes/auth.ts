@@ -10,13 +10,13 @@ export default {
     //  },
     // },
     {
-      method: 'GET',
-      path: '/auth/login',
+      method: 'POST',
+      path: '/auth/oauth/login',
       handler: 'auth.login',
       config: {
         auth: false,
-        policies: [],
-        middlewares: [],
+        // policies: [],
+        // middlewares: [],
       },
     },
   ],
