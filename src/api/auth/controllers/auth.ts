@@ -21,10 +21,13 @@ const login: Middleware = async ctx => {
 
     if (!oauthToken || !accessToken || !email) {
       const responseError: ResponseError = {
-        status: 400,
-        name: 'MissingRequiredFields',
-        message: 'Missing required body item',
-        details: {},
+        data: null,
+        error: {
+          status: 400,
+          name: 'MissingRequiredFields',
+          message: 'Missing required body item',
+          details: {},
+        },
       };
       ctx.status = 400;
       ctx.body = responseError;
@@ -34,26 +37,27 @@ const login: Middleware = async ctx => {
     const people = google.people('v1');
     const { data } = await people.people.get(
       {
-        oauth_token:
-          'eyJhbGciOiJSUzI1NiIsImtpZCI6ImZjYmQ3ZjQ4MWE4MjVkMTEzZTBkMDNkZDk0ZTYwYjY5ZmYxNjY1YTIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTU4ODUzMzM0NzQtcTRlYXMzdjBrY2wyNTZsNTdiNWowaWloY2pwYTZyODEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTU4ODUzMzM0NzQtcTRlYXMzdjBrY2wyNTZsNTdiNWowaWloY2pwYTZyODEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDM4NzgwMzAzNzY2OTIwNjkzNDUiLCJlbWFpbCI6ImRldi5uYW1lemluQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiSVhwX2tFaEg3bVRNNm9qdVZ4NWZXUSIsIm5vbmNlIjoiU1JfMHhHN2xlYmY0aEMwRDdjWWdabWRvcEF2SFZuX1pOU3oycG45ejlCSSIsIm5hbWUiOiJKdW5oeXVuZyBTZW8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKek5teGNnYm5fajFsOGtQU3lUVFJsdXFEYlNXNy1tYkxLTUxmZjM9czk2LWMiLCJnaXZlbl9uYW1lIjoiSnVuaHl1bmciLCJmYW1pbHlfbmFtZSI6IlNlbyIsImxvY2FsZSI6ImtvIiwiaWF0IjoxNjUyMDEzMDcxLCJleHAiOjE2NTIwMTY2NzF9.CAWVxzS2IaZsCk79GhDTTVhp6gMO14s4v_wJPb11_4B-kDvCy35HmeiFNS9vgxsSlaeNKhVDm14aVTCIQ-NfhudcYA1XdwpSVjEp1O0holHE5qKbBX-nf_Vjpe1nn_BY5faFOSIg0DYX3AY55L-feWoxgbjtxDEulSl6SiTd2dDlfncn5RpJXurWiVzQCL93TPcXMrtnqzQH6W8zfi-hKDohF9jzfd8xVhweEivkmhq0pae0mJCvPJrRYo_JCuPnrUnHFCif3NtMYk5IsyYlGbFSOS0JDC7pMflUjB-ff-dBw4TyXLYf6ni83vFakH8xTCfXGvmyDkHLm9vkKFPbPA',
-        access_token:
-          'ya29.A0ARrdaM9ZA-n3Nqzc-1KOqItW4yzbFPRChXHEceqT2_FYwLepv1kT3F7PHD4Xpq9T2U2yb7JlJy3Ygdr7GVIveSGS6T7aFYVn_YFws2W5MoaFGn8_XRG5X42HGA4U8Q4B4OlGG9uX8LyPQykdrUMloqe2kAN8',
+        oauth_token: oauthToken,
+        access_token: accessToken,
         resourceName: 'people/me',
         personFields: 'emailAddresses,names',
       },
       {
         headers: {
-          Authorization: `Bearer ya29.A0ARrdaM9ZA-n3Nqzc-1KOqItW4yzbFPRChXHEceqT2_FYwLepv1kT3F7PHD4Xpq9T2U2yb7JlJy3Ygdr7GVIveSGS6T7aFYVn_YFws2W5MoaFGn8_XRG5X42HGA4U8Q4B4OlGG9uX8LyPQykdrUMloqe2kAN8`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     );
 
     if (!data.emailAddresses || data.emailAddresses.length === 0) {
       const responseError: ResponseError = {
-        status: 404,
-        name: 'NotFoundGoogleEmail',
-        message: 'No google email address found',
-        details: {},
+        data: null,
+        error: {
+          status: 404,
+          name: 'NotFoundGoogleEmail',
+          message: 'No google email address found',
+          details: {},
+        },
       };
       ctx.status = 404;
       ctx.body = responseError;
@@ -66,10 +70,13 @@ const login: Middleware = async ctx => {
 
     if (!primaryEmail?.value) {
       const responseError: ResponseError = {
-        status: 404,
-        name: 'NotFoundPrimaryGoogleEmail',
-        message: 'No primary google email address found',
-        details: {},
+        data: null,
+        error: {
+          status: 404,
+          name: 'NotFoundPrimaryGoogleEmail',
+          message: 'No primary google email address found',
+          details: {},
+        },
       };
       ctx.status = 404;
       ctx.body = responseError;
@@ -90,10 +97,13 @@ const login: Middleware = async ctx => {
 
     if (!foundUser) {
       const responseError: ResponseError = {
-        status: 404,
-        name: 'NotFoundUser',
-        message: 'No user found by google email',
-        details: {},
+        data: null,
+        error: {
+          status: 404,
+          name: 'NotFoundUser',
+          message: 'No user found by google email',
+          details: {},
+        },
       };
       ctx.status = 404;
       ctx.body = responseError;
@@ -128,17 +138,20 @@ const login: Middleware = async ctx => {
             };
 
       const responseError: ResponseError = {
-        status: err.code,
-        name: error.message,
-        message: `reasen: ${error.reason} | location: ${error.location} | locationType: ${error.locationType}`,
-        details: err.errors,
+        data: null,
+        error: {
+          status: err.code,
+          name: error.message,
+          message: `reasen: ${error.reason} | location: ${error.location} | locationType: ${error.locationType}`,
+          details: err.errors,
+        },
       };
 
       ctx.status = err.code;
       ctx.body = responseError;
       return;
     } else if (isResponseError(err)) {
-      ctx.status = err.status;
+      ctx.status = err.error.status;
       ctx.body = err;
       return;
     }
