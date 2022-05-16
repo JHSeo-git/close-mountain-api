@@ -10,8 +10,8 @@ export type ResponseError = {
 
 export function isResponseError(error: any): error is ResponseError {
   return (
-    error.error.status !== undefined &&
-    error.error.name !== undefined &&
-    error.error.message !== undefined
+    error?.error?.status !== undefined &&
+    error?.error?.name !== undefined &&
+    error?.error?.message !== undefined
   );
 }

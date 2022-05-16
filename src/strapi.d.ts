@@ -9,7 +9,11 @@ declare global {
   }
   interface OverrideStrapiInterface extends StrapiInterface {
     query: Database['query'];
+    entityService: any;
     getModel: any;
+    plugins: any;
+    config: any;
+    service: any;
   }
   const strapi: OverrideStrapiInterface;
 }

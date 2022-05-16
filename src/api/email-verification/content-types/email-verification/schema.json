@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "email_verifications",
+  "info": {
+    "singularName": "email-verification",
+    "pluralName": "email-verifications",
+    "displayName": "EmailVerification",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "reset-password",
+        "signup",
+        "two-factor"
+      ],
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

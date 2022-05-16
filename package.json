@@ -19,6 +19,7 @@
     "@strapi/plugin-documentation": "4.2.0-beta.1",
     "@strapi/plugin-i18n": "4.2.0-beta.1",
     "@strapi/plugin-users-permissions": "4.2.0-beta.1",
+    "@strapi/provider-email-nodemailer": "^4.1.11",
     "@strapi/strapi": "4.2.0-beta.1",
     "better-sqlite3": "7.4.6",
     "googleapis": "^100.0.0"

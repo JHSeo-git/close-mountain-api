@@ -1,4 +1,4 @@
-export default {
+export default ({ env }) => ({
   'users-permissions': {
     config: {
       jwt: {
@@ -6,4 +6,18 @@ export default {
       },
     },
   },
-};
+  email: {
+    config: {
+      provider: 'nodemailer',
+      providerOptions: {
+        host: 'localhost',
+        port: 1025,
+        ignoreTLS: true,
+      },
+      settings: {
+        defaultFrom: 'closemountain@sample.com',
+        defaultReplyTo: 'closemountain@sample.com',
+      },
+    },
+  },
+});
