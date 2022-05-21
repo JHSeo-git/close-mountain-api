@@ -29,6 +29,10 @@
     "code": {
       "type": "string",
       "required": true
+    },
+    "used": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

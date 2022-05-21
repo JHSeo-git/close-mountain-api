@@ -35,6 +35,9 @@
                               "code": {
                                 "type": "string"
                               },
+                              "used": {
+                                "type": "boolean"
+                              },
                               "createdAt": {
                                 "type": "string",
                                 "format": "date-time"
@@ -630,6 +633,9 @@
                             "code": {
                               "type": "string"
                             },
+                            "used": {
+                              "type": "boolean"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -1156,6 +1162,9 @@
                             "code": {
                               "type": "string"
                             },
+                            "used": {
+                              "type": "boolean"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -1660,6 +1669,9 @@
                             "code": {
                               "type": "string"
                             },
+                            "used": {
+                              "type": "boolean"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -2154,6 +2166,9 @@
                       },
                       "code": {
                         "type": "string"
+                      },
+                      "used": {
+                        "type": "boolean"
                       },
                       "createdAt": {
                         "type": "string",
