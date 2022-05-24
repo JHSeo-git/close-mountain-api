@@ -22,17 +22,6 @@
       "required": true,
       "unique": true
     },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "slug": {
       "type": "string",
       "required": true
@@ -42,6 +31,21 @@
       "relation": "oneToMany",
       "target": "api::nft.nft",
       "mappedBy": "collection"
+    },
+    "logo": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "NEW",
+        "ART",
+        "MUSIC",
+        "PHOTOGRAPHY",
+        "SPORTS",
+        "UTILITY"
+      ],
+      "required": true
     }
   }
 }

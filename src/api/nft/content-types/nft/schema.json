@@ -13,21 +13,11 @@
   "pluginOptions": {},
   "attributes": {
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "description": {
       "type": "text"
-    },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
     },
     "collection": {
       "type": "relation",
@@ -49,6 +39,17 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "logo": {
+      "type": "string"
+    },
+    "paymentAsset": {
+      "type": "enumeration",
+      "enum": [
+        "ETH",
+        "SOL"
+      ],
+      "required": true
     }
   }
 }

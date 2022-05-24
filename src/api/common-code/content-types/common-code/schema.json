@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "common_codes",
+  "info": {
+    "singularName": "common-code",
+    "pluralName": "common-codes",
+    "displayName": "CommonCode",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "group": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    },
+    "use": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "codeName": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
