@@ -678,6 +678,23 @@
                                               "UTILITY"
                                             ]
                                           },
+                                          "creator": {
+                                            "type": "object",
+                                            "properties": {
+                                              "data": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "id": {
+                                                    "type": "string"
+                                                  },
+                                                  "attributes": {
+                                                    "type": "object",
+                                                    "properties": {}
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
                                           "createdAt": {
                                             "type": "string",
                                             "format": "date-time"
@@ -1742,6 +1759,23 @@
                                             "UTILITY"
                                           ]
                                         },
+                                        "creator": {
+                                          "type": "object",
+                                          "properties": {
+                                            "data": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                },
+                                                "attributes": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -2739,6 +2773,23 @@
                                             "UTILITY"
                                           ]
                                         },
+                                        "creator": {
+                                          "type": "object",
+                                          "properties": {
+                                            "data": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                },
+                                                "attributes": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -3711,6 +3762,23 @@
                                             "SPORTS",
                                             "UTILITY"
                                           ]
+                                        },
+                                        "creator": {
+                                          "type": "object",
+                                          "properties": {
+                                            "data": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string"
+                                                },
+                                                "attributes": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                }
+                                              }
+                                            }
+                                          }
                                         },
                                         "createdAt": {
                                           "type": "string",
